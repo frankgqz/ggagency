@@ -1,11 +1,19 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "ggagency",
-  "main": ".open-next/worker.js",
-  "compatibility_date": "2025-01-01",
-  "compatibility_flags": ["nodejs_compat"],
-  "assets": {
-    "binding": "ASSETS",
-    "directory": ".open-next/assets"
-  }
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "ggagency",
+	"main": ".open-next/worker.js",
+	"compatibility_date": "2025-01-01",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"assets": {
+		"binding": "ASSETS",
+		"directory": ".open-next/assets"
+	},
+	"r2_buckets": [
+		{
+			"bucket_name": "ggagency-images",
+			"binding": "ggagency_images"
+		}
+	]
 }

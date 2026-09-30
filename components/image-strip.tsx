@@ -1,7 +1,11 @@
-const stripItems = [
-  "Live", "Stage", "Host", "Star", "Show", "Dance",
-  "Sing", "Crowd", "Glow", "Vibe", "Night", "Cheers",
-];
+// R2 public URL — update the pub-xxxxx hash after enabling Public Development URL
+// in Cloudflare Dashboard → R2 → ggagency-images → Settings → Public Development URL
+const R2_BASE = "https://pub-f1e69e4efe664d3188e5b23193330cfe.r2.dev";
+
+const stripImages = Array.from({ length: 12 }, (_, i) => ({
+  src: `${R2_BASE}/strip/${String(i + 1).padStart(2, "0")}.jpg`,
+  label: `Photo ${i + 1}`,
+}));
 
 const gradients = [
   "from-orange-300 to-brand-orange/60",
@@ -17,16 +21,18 @@ export function ImageStrip() {
     <section className="w-full overflow-hidden bg-white py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex gap-3 overflow-x-auto pb-4 [scrollbar-width:thin]">
-          {stripItems.map((label, i) => (
+          {stripImages.map((img, i) => (
             <div
               key={i}
-              className={`relative h-[345px] w-[121px] shrink-0 overflow-hidden rounded-lg bg-gradient-to-b ${gradients[i % gradients.length]}`}
+              className="relative h-[345px] w-[121px] shrink-0 overflow-hidden rounded-lg"
             >
-              <div className="absolute inset-0 flex items-end justify-center pb-6">
-                <span className="text-xs font-medium text-white/80">
-                  {label}
-                </span>
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={img.src}
+                alt={img.label}
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
             </div>
           ))}
         </div>
