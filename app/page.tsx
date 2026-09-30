@@ -6,7 +6,6 @@ import { Gallery } from "@/components/gallery";
 import { ImageStrip } from "@/components/image-strip";
 import { LivestreamerCta } from "@/components/livestreamer-cta";
 import { ContactForm } from "@/components/contact-form";
-import { PreFooter } from "@/components/pre-footer";
 import { Spline3D } from "@/components/spline-3d";
 import { SiteFooter } from "@/components/site-footer";
 
@@ -22,7 +21,6 @@ export default function Home() {
         <ImageStrip />
         <LivestreamerCta />
         <ContactForm />
-        <PreFooter />
         <Spline3D />
       </main>
       <SiteFooter />
