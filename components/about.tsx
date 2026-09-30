@@ -1,11 +1,17 @@
 export function About() {
   return (
-    <section className="w-full bg-white">
-      <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 py-16 text-center sm:px-6 lg:py-24">
-        <h2 className="text-4xl font-normal text-brand-orange sm:text-5xl">
+    <section className="relative w-full overflow-hidden bg-white">
+      {/* Decorative floating shapes */}
+      <div className="pointer-events-none absolute -left-16 top-20 h-32 w-32 rounded-full bg-brand-orange/10" />
+      <div className="pointer-events-none absolute -right-12 bottom-24 h-24 w-24 rounded-full bg-brand-pink/10" />
+      <div className="pointer-events-none absolute left-1/4 top-10 h-4 w-4 rounded-full bg-brand-navy/10" />
+      <div className="pointer-events-none absolute right-1/3 bottom-16 h-6 w-6 rounded-full bg-brand-orange/15" />
+
+      <div className="mx-auto flex max-w-4xl flex-col items-center gap-8 px-4 py-24 text-center sm:px-6 lg:py-32">
+        <h2 className="text-[2.5rem] font-normal leading-tight text-brand-orange sm:text-[3.125rem]">
           About Us
         </h2>
-        <p className="text-base leading-relaxed text-brand-navy">
+        <p className="max-w-[780px] font-poppins text-[17px] font-extralight leading-[1.8] text-brand-navy">
           Welcome to GG Agency, Australia&apos;s premier Bigo livestreaming
           agency, where we proudly manage an extensive roster of talented live
           streamers. Our vibrant community has exciting events through the year.

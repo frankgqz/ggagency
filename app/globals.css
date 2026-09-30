@@ -10,6 +10,10 @@
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-sans);
+  --font-poppins: var(--font-poppins);
+
+  /* Brand extra */
+  --color-brand-pink: #ea80ff;
 
   /* Brand */
   --color-brand-orange: #fc9823;

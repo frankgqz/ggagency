@@ -1,13 +1,11 @@
-import { buttonVariants } from "@/components/ui/button";
-
 export function LivestreamerCta() {
   return (
     <section className="w-full bg-white">
-      <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 py-16 text-center sm:px-6 lg:py-24">
-        <h2 className="text-4xl font-normal text-brand-orange sm:text-5xl">
+      <div className="mx-auto flex max-w-4xl flex-col items-center gap-8 px-4 py-24 text-center sm:px-6 lg:py-32">
+        <h2 className="text-[2.5rem] font-normal leading-tight text-brand-orange sm:text-[3.125rem]">
           Become An Official Bigo Livestreamer
         </h2>
-        <p className="text-base leading-relaxed text-brand-navy">
+        <p className="max-w-[780px] font-poppins text-[17px] font-extralight leading-[1.8] text-brand-navy">
           Welcome to GG Agency, Australia&apos;s #1 livestreaming agency! We
           pride ourselves on managing a dynamic community of live streamers who
           share their lives while earning money. Join our family and take part in
@@ -22,11 +20,7 @@ export function LivestreamerCta() {
           href="https://wa.me/61474749999"
           target="_blank"
           rel="noopener noreferrer"
-          className={buttonVariants({
-            size: "lg",
-            className:
-              "rounded-full bg-brand-orange px-8 text-base font-medium text-white hover:bg-brand-orange/90",
-          })}
+          className="inline-flex h-[45px] w-[120px] items-center justify-center bg-brand-pink font-poppins text-[15px] font-normal text-black transition hover:opacity-90"
         >
           Join Us
         </a>

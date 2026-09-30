@@ -3,8 +3,11 @@ import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
 import { Story } from "@/components/story";
 import { Gallery } from "@/components/gallery";
+import { ImageStrip } from "@/components/image-strip";
 import { LivestreamerCta } from "@/components/livestreamer-cta";
 import { ContactForm } from "@/components/contact-form";
+import { PreFooter } from "@/components/pre-footer";
+import { Spline3D } from "@/components/spline-3d";
 import { SiteFooter } from "@/components/site-footer";
 
 export default function Home() {
@@ -16,8 +19,11 @@ export default function Home() {
         <About />
         <Story />
         <Gallery />
+        <ImageStrip />
         <LivestreamerCta />
         <ContactForm />
+        <PreFooter />
+        <Spline3D />
       </main>
       <SiteFooter />
     </>

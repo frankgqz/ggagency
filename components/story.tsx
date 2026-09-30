@@ -1,11 +1,11 @@
 export function Story() {
   return (
     <section className="w-full bg-white">
-      <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 py-16 text-center sm:px-6 lg:py-24">
-        <h2 className="text-4xl font-normal text-brand-navy sm:text-5xl">
+      <div className="mx-auto flex max-w-4xl flex-col items-center gap-8 px-4 py-24 text-center sm:px-6 lg:py-32">
+        <h2 className="text-[2.5rem] font-normal leading-tight text-brand-navy sm:text-[3.125rem]">
           Our Story
         </h2>
-        <p className="text-base leading-relaxed text-brand-navy">
+        <p className="max-w-[780px] font-poppins text-[17px] font-extralight leading-[1.8] text-brand-navy">
           In 2019, we saw the incredible potential of live streaming in
           Australia. Bigo was a platform for creators to connect, entertain, and
           build communities. With a vision to empower these performers, GG Agency

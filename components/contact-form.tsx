@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
@@ -18,50 +17,49 @@ export function ContactForm() {
 
   return (
     <section className="w-full bg-white">
-      <div className="mx-auto flex max-w-2xl flex-col items-center gap-8 px-4 py-16 sm:px-6 lg:py-24">
-        <h2 className="text-4xl font-normal text-brand-orange sm:text-5xl">
-          Contact Us
-        </h2>
-        <form onSubmit={handleSubmit} className="flex w-full flex-col gap-4">
-          <input
-            required
-            name="name"
-            placeholder="Name"
-            className="h-12 w-full rounded-lg border border-neutral-300 px-4 text-base text-brand-navy outline-none transition focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/30"
-          />
-          <input
-            required
-            name="whatsapp"
-            type="tel"
-            placeholder="Whatsapp #"
-            className="h-12 w-full rounded-lg border border-neutral-300 px-4 text-base text-brand-navy outline-none transition focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/30"
-          />
+      <div className="mx-auto flex max-w-2xl flex-col items-center px-4 py-20 sm:px-6 lg:py-24">
+        <form onSubmit={handleSubmit} className="flex w-full flex-col gap-3">
+          {/* Name + WhatsApp side by side */}
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <input
+              required
+              name="name"
+              placeholder="Name"
+              className="h-[37px] w-full border border-neutral-400 bg-transparent px-2.5 py-[3px] font-sans text-sm text-black outline-none transition focus:border-black"
+            />
+            <input
+              required
+              name="whatsapp"
+              type="tel"
+              placeholder="Whatsapp #"
+              className="h-[37px] w-full border border-neutral-400 bg-transparent px-2.5 py-[3px] font-sans text-sm text-black outline-none transition focus:border-black"
+            />
+          </div>
           <input
             required
             name="email"
             type="email"
             placeholder="Email"
-            className="h-12 w-full rounded-lg border border-neutral-300 px-4 text-base text-brand-navy outline-none transition focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/30"
+            className="h-[37px] w-full border border-neutral-400 bg-transparent px-2.5 py-[3px] font-sans text-sm text-black outline-none transition focus:border-black"
           />
           <textarea
             required
             name="message"
             placeholder="Message"
-            rows={5}
-            className="w-full rounded-lg border border-neutral-300 px-4 py-3 text-base text-brand-navy outline-none transition focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/30"
+            rows={3}
+            className="min-h-[67px] w-full resize-none border border-neutral-400 bg-transparent px-2.5 pt-2.5 pb-[3px] font-sans text-sm text-black outline-none transition focus:border-black"
           />
-          <Button
+          <button
             type="submit"
-            size="lg"
             disabled={status === "sending"}
-            className="h-12 rounded-full bg-brand-orange px-10 text-base font-medium text-white hover:bg-brand-orange/90"
+            className="h-9 w-[140px] bg-black font-sans text-sm text-white transition hover:opacity-80 disabled:opacity-50"
           >
             {status === "sending"
               ? "Sending…"
               : status === "sent"
                 ? "Sent ✓"
                 : "Send"}
-          </Button>
+          </button>
         </form>
       </div>
     </section>
