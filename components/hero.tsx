@@ -1,3 +1,5 @@
+const R2 = "https://pub-f1e69e4efe664d3188e5b23193330cfe.r2.dev";
+
 export function Hero() {
   return (
     <section className="w-full bg-white">
@@ -17,21 +19,37 @@ export function Hero() {
             professional approach to diamond reselling that prioritizes your
             satisfaction and success. Message us today!
           </p>
-          <div className="flex flex-col gap-1 pt-2">
+          <div className="flex flex-col gap-3 pt-2">
             <a
               href="https://wa.me/61474749999"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-3xl font-normal leading-[1.4] text-brand-navy transition hover:text-brand-orange sm:text-4xl"
+              className="flex items-center gap-3 text-3xl font-normal leading-[1.4] text-brand-navy transition hover:text-brand-orange sm:text-4xl"
             >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`${R2}/elements/whatsapp.png`}
+                alt="WhatsApp"
+                width={36}
+                height={36}
+                className="object-contain"
+              />
               +61474749999
             </a>
             <a
               href="https://wa.me/61474749999"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-3xl font-normal leading-[1.4] text-brand-navy transition hover:text-brand-orange sm:text-4xl"
+              className="flex items-center gap-3 text-3xl font-normal leading-[1.4] text-brand-navy transition hover:text-brand-orange sm:text-4xl"
             >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`${R2}/elements/zalo.png`}
+                alt="Zalo"
+                width={36}
+                height={36}
+                className="object-contain"
+              />
               +61474749999
             </a>
           </div>

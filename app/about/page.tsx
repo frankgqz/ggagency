@@ -2,8 +2,10 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ContactForm } from "@/components/contact-form";
 
+const R2 = "https://pub-f1e69e4efe664d3188e5b23193330cfe.r2.dev";
+
 const team = [
-  { name: "Haylee Trinh", role: "Founder & CEO" },
+  { name: "Haylee Trinh", role: "Founder & CEO", photo: `${R2}/elements/haylee.avif` },
   { name: "Sophie", role: "Admin" },
   { name: "Jung", role: "Reseller Admin" },
 ];
@@ -23,9 +25,18 @@ export default function AboutPage() {
               {team.map((person) => (
                 <div key={person.name} className="flex flex-col items-center gap-3">
                   <div className="h-32 w-32 overflow-hidden rounded-full bg-gradient-to-br from-brand-orange/20 to-brand-pink/20">
-                    <div className="flex h-full w-full items-center justify-center text-2xl text-brand-navy/30">
-                      {person.name.charAt(0)}
-                    </div>
+                    {person.photo ? (
+                      /* eslint-disable-next-line @next/next/no-img-element */
+                      <img
+                        src={person.photo}
+                        alt={person.name}
+                        className="h-full w-full object-cover"
+                      />
+                    ) : (
+                      <div className="flex h-full w-full items-center justify-center text-2xl text-brand-navy/30">
+                        {person.name.charAt(0)}
+                      </div>
+                    )}
                   </div>
                   <h2 className="text-lg font-normal text-brand-navy">
                     {person.name}
