@@ -1,25 +1,25 @@
 import { SiteHeader } from "@/components/site-header";
-import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
-import { Story } from "@/components/story";
+import { LivestreamerCta } from "@/components/livestreamer-cta";
 import { Gallery } from "@/components/gallery";
 import { ImageStrip } from "@/components/image-strip";
-import { LivestreamerCta } from "@/components/livestreamer-cta";
+import { BigoStory } from "@/components/bigo-story";
+import { DiamondReseller } from "@/components/diamond-reseller";
 import { ContactForm } from "@/components/contact-form";
-import { Spline3D } from "@/components/spline-3d";
 import { SiteFooter } from "@/components/site-footer";
+import { Spline3D } from "@/components/spline-3d";
 
 export default function Home() {
   return (
     <>
       <SiteHeader />
       <main className="flex-1">
-        <Hero />
         <About />
-        <Story />
+        <LivestreamerCta />
         <Gallery />
         <ImageStrip />
-        <LivestreamerCta />
+        <BigoStory />
+        <DiamondReseller />
         <ContactForm />
         <Spline3D />
       </main>

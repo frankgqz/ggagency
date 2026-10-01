@@ -1,13 +1,13 @@
 const R2 = "https://pub-f1e69e4efe664d3188e5b23193330cfe.r2.dev";
 
-export function Hero() {
+export function DiamondReseller() {
   return (
     <section className="w-full bg-white">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:items-center lg:py-24">
         <div className="flex flex-col gap-5">
-          <h1 className="text-[2.5rem] font-normal leading-tight text-brand-orange sm:text-[3.125rem]">
+          <h2 className="text-[2.5rem] font-normal leading-tight text-brand-orange sm:text-[3.125rem]">
             Diamond Reseller
-          </h1>
+          </h2>
           <p className="text-lg leading-[1.73] text-brand-navy">
             Fast BigoLive Diamond Recharge
           </p>
@@ -70,9 +70,9 @@ export function Hero() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   >
-                    <path d="M12 2 2 7l10 5 10-5-10-5Z" />
-                    <path d="m2 17 10 5 10-5" />
-                    <path d="m2 12 10 5 10-5" />
+                    <path d="M6 3h12l4 6-10 13L2 9Z" />
+                    <path d="M11 3 8 9l4 13 4-13-3-6" />
+                    <path d="M2 9h20" />
                   </svg>
                 </div>
                 <p className="text-sm font-medium text-brand-navy">
