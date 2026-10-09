@@ -15,5 +15,18 @@
 			"bucket_name": "ggagency-images",
 			"binding": "ggagency_images"
 		}
-	]
+	],
+	"d1_databases": [
+		{
+			"binding": "ggagency_db",
+			"database_name": "ggagency-db",
+			"database_id": "77fceb40-905b-4fba-90f5-53ac74038bb1",
+			"migrations_dir": "migrations",
+			"remote": true
+		}
+	],
+	"vars": {
+		"CONTACT_NOTIFY_TO": "ggagency.bigo@gmail.com, haylee.trinh@gmail.com, frankgqz@gmail.com",
+		"CONTACT_FROM": "GG Agency Forms <forms@gqz.app>"
+	}
 }

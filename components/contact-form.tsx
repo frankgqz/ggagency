@@ -10,9 +10,20 @@ export function ContactForm() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("sending");
-    // TODO: wire to a server action / Workers endpoint
-    await new Promise((r) => setTimeout(r, 500));
-    setStatus("sent");
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      form.reset();
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -58,8 +69,15 @@ export function ContactForm() {
               ? "Sending…"
               : status === "sent"
                 ? "Sent ✓"
-                : "Send"}
+                : status === "error"
+                  ? "Try again"
+                  : "Send"}
           </button>
+          {status === "error" && (
+            <p className="text-center font-sans text-sm text-red-600">
+              Something went wrong — please try again.
+            </p>
+          )}
         </form>
       </div>
     </section>

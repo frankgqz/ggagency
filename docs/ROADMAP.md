@@ -3,7 +3,7 @@
 ## High priority
 
 - [ ] **Custom domain** — attach `ggagency.com.au` via Cloudflare dashboard (Workers → Domains & Routes) after design is finalised
-- [ ] **Contact form backend** — wire form to a Workers API route or email service (Resend/MailChannels). Currently a client-side stub.
+- [x] **Contact form backend** — DONE 2026-10-08, verified live (form → `POST /api/contact` → D1 `ggagency-db` + email notify via Resend from `forms@gqz.app` → 3 recipients; delivered & confirmed). Swap FROM to `forms@ggagency.com.au` when its DNS leaves Wix.
 - [ ] **Team member photos** — replace initial-letter placeholders on `/about` with real photos (upload to R2)
 
 ## CMS & content

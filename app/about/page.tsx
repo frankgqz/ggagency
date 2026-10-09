@@ -2,7 +2,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ContactForm } from "@/components/contact-form";
 
-const R2 = "https://pub-f1e69e4efe664d3188e5b23193330cfe.r2.dev";
+const R2 = "/images";
 
 const team = [
   { name: "Haylee Trinh", role: "Founder & CEO", photo: `${R2}/elements/haylee.avif` },

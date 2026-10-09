@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const R2 = "https://pub-f1e69e4efe664d3188e5b23193330cfe.r2.dev";
+const R2 = "/images";
 const WHATSAPP = "https://wa.me/61474749999";
 
 export function SiteHeader() {

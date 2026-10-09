@@ -1,6 +1,6 @@
-// R2 public URL — update the pub-xxxxx hash after enabling Public Development URL
-// in Cloudflare Dashboard → R2 → ggagency-images → Settings → Public Development URL
-const R2_BASE = "https://pub-f1e69e4efe664d3188e5b23193330cfe.r2.dev";
+// Images served from the R2 bucket via the Worker route /images/*
+// (app/images/[...key]/route.ts) — no public dev URL involved.
+const R2_BASE = "/images";
 
 const stripImages = Array.from({ length: 12 }, (_, i) => ({
   src: `${R2_BASE}/strip/${String(i + 1).padStart(2, "0")}.jpg`,

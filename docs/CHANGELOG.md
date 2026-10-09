@@ -1,5 +1,19 @@
 # Changelog
 
+## 2026-10-08
+
+### Added
+- Worker route `/images/*` (`app/images/[...key]/route.ts`) — streams R2 objects from the `ggagency_images` binding with content-type + cache headers
+- D1 database `ggagency-db` created (region OC, id in `wrangler.jsonc`) + `d1_databases` binding `env.ggagency_db`
+- `migrations/0001_contact_submissions.sql` — `contact_submissions` table
+- `app/api/contact/route.ts` — `POST /api/contact`: validates name/whatsapp/email/message, prepared-statement INSERT into D1
+- `types/cloudflare-env.d.ts` — minimal D1 typing (swap for `@cloudflare/workers-types` later)
+- `initOpenNextCloudflareForDev()` in `next.config.ts` — `next dev` sees the bindings like production
+
+### Changed
+- All image URLs now site-relative (`/images/…`) and served through the R2 binding — the `pub-…r2.dev` public dev URL is gone from the code (5 files)
+- Contact form is now real: `fetch("/api/contact")` with sending/sent/error states (was a 500ms `setTimeout` stub)
+
 ## 2026-09-30
 
 ### Added

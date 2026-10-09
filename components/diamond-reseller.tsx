@@ -1,4 +1,4 @@
-const R2 = "https://pub-f1e69e4efe664d3188e5b23193330cfe.r2.dev";
+const R2 = "/images";
 
 export function DiamondReseller() {
   return (

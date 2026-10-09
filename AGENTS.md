@@ -32,6 +32,35 @@ Teach-the-stack sittings — mechanism first, one topic per sitting:
 Order of building: form-slice-first (form → D1 → validation/Turnstile), then
 gallery, then CMS. Explain mechanisms, don't just ship.
 
+## Progress
+- 2026-10-08: **Contact form → D1 slice WRITTEN** (not yet deployed):
+  `migrations/0001_contact_submissions.sql` (table),
+  `app/api/contact/route.ts` (POST handler: validates + prepared-statement
+  INSERT via `getCloudflareContext().env.ggagency_db`),
+  `components/contact-form.tsx` (real fetch, error state),
+  `wrangler.jsonc` d1_databases binding (database_id = PLACEHOLDER),
+  `next.config.ts` `initOpenNextCloudflareForDev()` (dev parity),
+  `types/cloudflare-env.d.ts` (minimal D1 typing; swap for
+  `@cloudflare/workers-types` later). `tsc --noEmit` clean.
+  DEPLOY STEPS (Frank's host shell — container has no CF auth and win32
+  node_modules): `npx wrangler d1 create ggagency-db` → paste database_id
+  into wrangler.jsonc → `npx wrangler d1 migrations apply ggagency-db
+  --remote` → `npm run deploy`. Verify: submit the form, then
+  `npx wrangler d1 execute ggagency-db --remote --command "SELECT * FROM
+  contact_submissions"`.
+
+## Browser setup (Frank's machine, proven 2026-10-08)
+Dedicated debug Chrome: taskbar shortcut →
+`chrome.exe --remote-debugging-port=9222 --user-data-dir="C:\Users\Frank\AppData\Local\chrome-debug"`
+(profile must NOT be at C:\ root — Chrome can't create it there).
+Working combo: `browser.use_real_profile: false` in Hermes config + run
+`/browser connect` in chat to arm the session (sets the CDP attach path).
+Known bugs: without `/browser connect`, browser_exec dies with
+`ModuleNotFoundError: fcntl` (harness launch path is Unix-only — needs
+`hermes update` eventually) or hangs 420s. The connected browser = ALL its
+windows/tabs visible via `Target.getTargets`; Frank's everyday Chrome is a
+separate instance and stays private.
+
 ## Provenance & workflow (Frank 2026-10-08)
 Current page was mostly built by **stagewise** (an AI coding agent with a
 built-in browser/element selector — handy for frontend work; NOT connected
