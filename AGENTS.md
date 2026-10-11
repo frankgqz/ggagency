@@ -82,6 +82,22 @@ worked (vault/frontman deletable — Frank's call).
   brand-* Tailwind names REBOUND to tier-1 vars so legacy classes theme
   automatically. Dark toggle (.dark on html, localStorage, pre-paint inline
   script = no FOUC) in the header.
+- 2026-10-11 (media pipeline + loading): 1.mp4 (6-min) moved to YouTube
+  (unlisted XJlMWchGuXs) — gallery tile 1 = YT thumb, click loads the embed.
+  Video tiles: preload=none + poster frames (ffmpeg 1s frame, 800px, ~50KB
+  each) = instant tiles, hover-play. Error 1102 diagnosis: /images STREAMS
+  (object.body) — not buffering; load profile was the trigger. Free-tier
+  loading notes: workers.dev has NO edge cache (custom domain = the lever);
+  pages already SSG (prerender-manifest: / + /about); hero = `-c copy`
+  faststart remux (Order/hero-faststart.mp4 -> hero/hero.mp4, quality
+  untouched). upload-gallery.ps1 skips 1.mp4 + 17* (R2 holds only used media).
+  Gotcha: .ps1 + non-ASCII path chars = mojibake in Windows PowerShell —
+  wildcard the path (`C:\Code\*stage\...`) instead of typing the char.
+- Gallery populated (2026-10-11): placeholder tiles replaced with the 42 real
+  media items (Order/ folder, numbered = appearance order; 17.mp4 = hero,
+  excluded). Media normalized: images webp q82/1600px, videos H.264 CRF24 with
+  bitrate caps; h264 sources kept-original when re-encode grew. R2 keys under
+  gallery/ (upload-gallery.ps1). Video tiles hover-play muted; click = lightbox.
 - Palette: "Blueberry Milk" (navy #2b3a55 text, periwinkle #5c77c9 brand,
   peach #f5c5aa + butter #f7eab8 accents) + dark variant. Theme ladder:
   surface bg/surface/ink, text subtext/text/heading, each accent has a
