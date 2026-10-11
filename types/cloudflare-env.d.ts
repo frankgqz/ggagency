@@ -13,12 +13,18 @@ interface D1Database {
 
 interface R2ObjectBody {
   body: ReadableStream | null;
+  size: number;
   httpEtag: string;
   httpMetadata?: { contentType?: string };
+  range?: { offset: number; length?: number };
+}
+
+interface R2GetOptions {
+  range?: Headers | { offset: number; length?: number } | { suffix: number };
 }
 
 interface R2Bucket {
-  get(key: string): Promise<R2ObjectBody | null>;
+  get(key: string, options?: R2GetOptions): Promise<R2ObjectBody | null>;
 }
 
 interface CloudflareEnv {

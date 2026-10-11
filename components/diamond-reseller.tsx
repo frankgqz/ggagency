@@ -3,7 +3,7 @@ const R2 = "/images";
 export function DiamondReseller() {
   return (
     <section className="w-full bg-white">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:items-center lg:py-24">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-10 sm:px-6 lg:grid-cols-2 lg:items-center lg:py-12">
         <div className="flex flex-col gap-5">
           <h2 className="text-[2.5rem] font-normal leading-tight text-brand-orange sm:text-[3.125rem]">
             Diamond Reseller

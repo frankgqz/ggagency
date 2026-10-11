@@ -1,7 +1,7 @@
 export function LivestreamerCta() {
   return (
     <section className="w-full bg-white">
-      <div className="mx-auto flex max-w-4xl flex-col items-center gap-8 px-4 py-24 text-center sm:px-6 lg:py-32">
+      <div className="mx-auto flex max-w-4xl flex-col items-center gap-8 px-4 py-12 text-center sm:px-6 lg:py-8">
         <h2 className="text-[2.5rem] font-normal leading-tight text-brand-orange sm:text-[3.125rem]">
           Become An Official Livestreamer
         </h2>

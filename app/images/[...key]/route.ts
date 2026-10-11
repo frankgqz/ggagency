@@ -7,10 +7,13 @@ const TYPES: Record<string, string> = {
   webp: "image/webp",
   gif: "image/gif",
   svg: "image/svg+xml",
+  mp4: "video/mp4",
+  webm: "video/webm",
+  mov: "video/quicktime",
 };
 
 export async function GET(
-  _req: Request,
+  req: Request,
   ctx: { params: Promise<{ key: string[] }> }
 ) {
   const { key } = await ctx.params;
@@ -21,7 +24,8 @@ export async function GET(
   }
 
   const { env } = await getCloudflareContext({ async: true });
-  const object = await env.ggagency_images.get(objectKey);
+  // Range passthrough: video seeking needs 206 partial responses.
+  const object = await env.ggagency_images.get(objectKey, { range: req.headers });
   if (!object) {
     return new Response("Not found", { status: 404 });
   }
@@ -34,6 +38,18 @@ export async function GET(
   );
   headers.set("cache-control", "public, max-age=86400");
   headers.set("etag", object.httpEtag);
+  headers.set("accept-ranges", "bytes");
 
-  return new Response(object.body, { headers });
+  let status = 200;
+  if (object.range) {
+    const start = object.range.offset;
+    const end = start + (object.range.length ?? object.size) - 1;
+    status = 206;
+    headers.set("content-range", `bytes ${start}-${end}/${object.size}`);
+    headers.set("content-length", String(end - start + 1));
+  } else {
+    headers.set("content-length", String(object.size));
+  }
+
+  return new Response(object.body, { status, headers });
 }

@@ -1,7 +1,7 @@
 export function Spline3D() {
   return (
     <section className="w-full bg-white">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-20">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:py-10">
         <div className="relative w-full overflow-hidden rounded-xl bg-neutral-50 shadow-sm">
           <iframe
             src="https://my.spline.design/bigoimport2-CZMLHvqjfRDZ8JW9B1sNAIa6/"

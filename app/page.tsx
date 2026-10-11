@@ -1,5 +1,6 @@
 import { SiteHeader } from "@/components/site-header";
 import { About } from "@/components/about";
+import { VideoCompare } from "@/components/video-compare";
 import { LivestreamerCta } from "@/components/livestreamer-cta";
 import { Gallery } from "@/components/gallery";
 import { ImageStrip } from "@/components/image-strip";
@@ -15,6 +16,7 @@ export default function Home() {
       <SiteHeader />
       <main className="flex-1">
         <About />
+        <VideoCompare />
         <LivestreamerCta />
         <Gallery />
         <ImageStrip />

@@ -7,7 +7,7 @@ export function About() {
       <div className="pointer-events-none absolute left-1/4 top-10 h-4 w-4 rounded-full bg-brand-navy/10" />
       <div className="pointer-events-none absolute right-1/3 bottom-16 h-6 w-6 rounded-full bg-brand-orange/15" />
 
-      <div className="mx-auto flex max-w-4xl flex-col items-center gap-8 px-4 py-24 text-center sm:px-6 lg:py-32">
+      <div className="mx-auto flex max-w-4xl flex-col items-center gap-8 px-4 py-12 text-center sm:px-6 lg:py-8">
         <h1 className="text-[2.5rem] font-normal leading-tight text-brand-orange sm:text-[3.125rem]">
           About Us
         </h1>

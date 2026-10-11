@@ -3,7 +3,7 @@ const R2 = "/images";
 export function BigoStory() {
   return (
     <section className="w-full bg-white">
-      <div className="mx-auto flex max-w-4xl flex-col items-center gap-8 px-4 py-24 text-center sm:px-6 lg:py-32">
+      <div className="mx-auto flex max-w-4xl flex-col items-center gap-8 px-4 py-12 text-center sm:px-6 lg:py-8">
         {/* Bigo icon moved from header */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img

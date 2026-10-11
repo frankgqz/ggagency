@@ -62,7 +62,7 @@ const gradients = [
 export function Gallery() {
   return (
     <section className="w-full bg-white">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-10 px-4 py-24 sm:px-6 lg:py-32">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-10 px-4 py-12 sm:px-6 lg:py-8">
         <h2 className="text-[2.5rem] font-normal leading-tight text-brand-orange sm:text-[3.125rem]">
           Gallery
         </h2>

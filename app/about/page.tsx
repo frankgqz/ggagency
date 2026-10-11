@@ -17,7 +17,7 @@ export default function AboutPage() {
       <main className="flex-1">
         {/* Meet The Team */}
         <section className="w-full bg-white">
-          <div className="mx-auto flex max-w-4xl flex-col items-center gap-10 px-4 py-24 text-center sm:px-6 lg:py-32">
+          <div className="mx-auto flex max-w-4xl flex-col items-center gap-10 px-4 py-12 text-center sm:px-6 lg:py-8">
             <h1 className="text-[2.5rem] font-normal leading-tight text-brand-orange sm:text-[3.125rem]">
               Meet The Team
             </h1>
@@ -52,7 +52,7 @@ export default function AboutPage() {
 
         {/* Contact Info */}
         <section className="w-full bg-white">
-          <div className="mx-auto flex max-w-4xl flex-col items-center gap-10 px-4 py-24 text-center sm:px-6 lg:py-32">
+          <div className="mx-auto flex max-w-4xl flex-col items-center gap-10 px-4 py-12 text-center sm:px-6 lg:py-8">
             <h2 className="text-[2.5rem] font-normal leading-tight text-brand-orange sm:text-[3.125rem]">
               Contact
             </h2>

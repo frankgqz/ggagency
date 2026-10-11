@@ -28,7 +28,7 @@ export function ContactForm() {
 
   return (
     <section className="w-full bg-white">
-      <div className="mx-auto flex max-w-2xl flex-col items-center px-4 py-20 sm:px-6 lg:py-24">
+      <div className="mx-auto flex max-w-2xl flex-col items-center px-4 py-10 sm:px-6 lg:py-12">
         <form onSubmit={handleSubmit} className="flex w-full flex-col gap-3">
           {/* Name + WhatsApp side by side */}
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
