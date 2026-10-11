@@ -1,8 +1,8 @@
 export function LivestreamerCta() {
   return (
-    <section className="w-full bg-white">
+    <section className="w-full bg-background">
       <div className="mx-auto flex max-w-4xl flex-col items-center gap-8 px-4 py-12 text-center sm:px-6 lg:py-8">
-        <h2 className="text-[2.5rem] font-normal leading-tight text-brand-orange sm:text-[3.125rem]">
+        <h2 className="text-[2.5rem] font-normal leading-tight text-heading sm:text-[3.125rem]">
           Become An Official Livestreamer
         </h2>
         <p className="max-w-[780px] font-poppins text-[17px] font-extralight leading-[1.8] text-brand-navy">
@@ -17,10 +17,8 @@ export function LivestreamerCta() {
           livestreaming!
         </p>
         <a
-          href="https://wa.me/61474749999"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex h-[45px] w-[120px] items-center justify-center bg-brand-pink font-poppins text-[15px] font-normal text-black transition hover:opacity-90"
+          href="#contact"
+          className="inline-flex h-[45px] w-[120px] items-center justify-center rounded-md bg-cta font-poppins text-[15px] font-medium text-ink shadow-sm transition hover:scale-105"
         >
           Join Us
         </a>

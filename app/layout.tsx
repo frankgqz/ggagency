@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Poppins } from "next/font/google";
+import { Space_Grotesk, Poppins, Sunflower } from "next/font/google";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -13,6 +13,11 @@ const poppins = Poppins({
   weight: ["200", "300", "400"],
 });
 
+const sunflower = Sunflower({
+  variable: "--font-sunflower",
+  weight: ["300", "500", "700"],
+});
+
 export const metadata: Metadata = {
   title: "GG Agency | Official Bigo Diamond Reseller",
   description:
@@ -23,9 +28,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${poppins.variable} h-full antialiased`}
+      className={`${spaceGrotesk.variable} ${poppins.variable} ${sunflower.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(localStorage.getItem('gg-theme')==='dark')document.documentElement.classList.add('dark')}catch(e){}",
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

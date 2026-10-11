@@ -1,6 +1,6 @@
 export function About() {
   return (
-    <section className="relative w-full overflow-hidden bg-white">
+    <section className="relative w-full overflow-hidden bg-background">
       {/* Decorative floating shapes */}
       <div className="pointer-events-none absolute -left-16 top-20 h-32 w-32 rounded-full bg-brand-orange/10" />
       <div className="pointer-events-none absolute -right-12 bottom-24 h-24 w-24 rounded-full bg-brand-pink/10" />
@@ -8,7 +8,7 @@ export function About() {
       <div className="pointer-events-none absolute right-1/3 bottom-16 h-6 w-6 rounded-full bg-brand-orange/15" />
 
       <div className="mx-auto flex max-w-4xl flex-col items-center gap-8 px-4 py-12 text-center sm:px-6 lg:py-8">
-        <h1 className="text-[2.5rem] font-normal leading-tight text-brand-orange sm:text-[3.125rem]">
+        <h1 className="text-[2.5rem] font-normal leading-tight text-heading sm:text-[3.125rem]">
           About Us
         </h1>
         <p className="max-w-[780px] font-poppins text-[17px] font-extralight leading-[1.8] text-brand-navy">

@@ -56,14 +56,14 @@ const gradients = [
   "from-indigo-100 to-brand-navy/40",
   "from-purple-100 to-brand-pink/30",
   "from-emerald-100 to-teal-200",
-  "from-pink-100 to-brand-orange/30",
+  "from-orange-100 to-brand-orange/30",
 ];
 
 export function Gallery() {
   return (
-    <section className="w-full bg-white">
+    <section className="w-full bg-background">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-10 px-4 py-12 sm:px-6 lg:py-8">
-        <h2 className="text-[2.5rem] font-normal leading-tight text-brand-orange sm:text-[3.125rem]">
+        <h2 className="text-[2.5rem] font-normal leading-tight text-heading sm:text-[3.125rem]">
           Gallery
         </h2>
         {/* Masonry-style columns */}

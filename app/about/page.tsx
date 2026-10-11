@@ -16,9 +16,9 @@ export default function AboutPage() {
       <SiteHeader />
       <main className="flex-1">
         {/* Meet The Team */}
-        <section className="w-full bg-white">
+        <section className="w-full bg-background">
           <div className="mx-auto flex max-w-4xl flex-col items-center gap-10 px-4 py-12 text-center sm:px-6 lg:py-8">
-            <h1 className="text-[2.5rem] font-normal leading-tight text-brand-orange sm:text-[3.125rem]">
+            <h1 className="text-[2.5rem] font-normal leading-tight text-heading sm:text-[3.125rem]">
               Meet The Team
             </h1>
             <div className="grid w-full max-w-2xl grid-cols-1 gap-8 sm:grid-cols-3">
@@ -38,7 +38,7 @@ export default function AboutPage() {
                       </div>
                     )}
                   </div>
-                  <h2 className="text-lg font-normal text-brand-navy">
+                  <h2 className="text-lg font-normal text-heading">
                     {person.name}
                   </h2>
                   <p className="font-poppins text-sm font-extralight text-brand-navy/70">
@@ -51,14 +51,14 @@ export default function AboutPage() {
         </section>
 
         {/* Contact Info */}
-        <section className="w-full bg-white">
+        <section className="w-full bg-background">
           <div className="mx-auto flex max-w-4xl flex-col items-center gap-10 px-4 py-12 text-center sm:px-6 lg:py-8">
-            <h2 className="text-[2.5rem] font-normal leading-tight text-brand-orange sm:text-[3.125rem]">
+            <h2 className="text-[2.5rem] font-normal leading-tight text-heading sm:text-[3.125rem]">
               Contact
             </h2>
             <div className="grid w-full max-w-2xl grid-cols-1 gap-8 sm:grid-cols-2">
               <div className="flex flex-col items-center gap-2">
-                <h3 className="text-lg font-normal text-brand-navy">Address</h3>
+                <h3 className="text-lg font-normal text-heading">Address</h3>
                 <p className="font-poppins text-[17px] font-extralight leading-relaxed text-brand-navy">
                   Melbourne, VIC 3000
                 </p>
@@ -78,7 +78,7 @@ export default function AboutPage() {
                 </a>
               </div>
               <div className="flex flex-col items-center gap-2">
-                <h3 className="text-lg font-normal text-brand-navy">
+                <h3 className="text-lg font-normal text-heading">
                   Opening Hours
                 </h3>
                 <p className="font-poppins text-[17px] font-extralight leading-relaxed text-brand-navy">

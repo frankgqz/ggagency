@@ -56,8 +56,8 @@ const socials = [
 
 export function SiteFooter() {
   return (
-    <footer className="w-full bg-black">
-      <div className="mx-auto flex h-[106px] max-w-6xl items-center justify-center gap-5 px-4 sm:px-6">
+    <footer className="w-full bg-ink">
+      <div className="mx-auto flex h-[60px] max-w-6xl items-center justify-center gap-5 px-4 sm:px-6">
         {socials.map((s) => (
           <a
             key={s.label}
@@ -65,7 +65,7 @@ export function SiteFooter() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={s.label}
-            className="flex h-10 w-10 items-center justify-center rounded-full text-white/80 transition hover:bg-white/10 hover:text-brand-orange"
+            className="flex h-10 w-10 items-center justify-center rounded-full text-on-ink/80 shadow-[0_2px_10px_rgba(120,120,120,0.5)] transition hover:scale-[1.3] hover:bg-background/10 hover:text-brand-orange"
           >
             {s.icon}
           </a>

@@ -2,20 +2,21 @@ const R2 = "/images";
 
 export function BigoStory() {
   return (
-    <section className="w-full bg-white">
-      <div className="mx-auto flex max-w-4xl flex-col items-center gap-8 px-4 py-12 text-center sm:px-6 lg:py-8">
-        {/* Bigo icon moved from header */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={`${R2}/elements/logo-bigolive.png`}
-          alt="Bigo Live"
-          width={64}
-          height={64}
-          className="rounded-full object-cover"
-        />
-        <h2 className="text-[2.5rem] font-normal leading-tight text-brand-navy sm:text-[3.125rem]">
-          Bigo
-        </h2>
+    <section className="w-full bg-background">
+      <div className="mx-auto flex max-w-4xl flex-col items-center gap-8 px-4 pt-2 pb-12 text-center sm:px-6 lg:pb-8">
+        <div className="flex items-center justify-center gap-4">
+          <h2 className="text-[2.5rem] font-normal leading-tight text-heading sm:text-[3.125rem]">
+            Bigo
+          </h2>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`${R2}/elements/logo-bigolive.png`}
+            alt="Bigo Live"
+            width={64}
+            height={64}
+            className="rounded-full object-cover"
+          />
+        </div>
         <p className="max-w-[780px] font-poppins text-[17px] font-extralight leading-[1.8] text-brand-navy">
           In 2019, we saw the incredible potential of live streaming in
           Australia. Bigo was a platform for creators to connect, entertain, and

@@ -75,6 +75,31 @@ worked (vault/frontman deletable — Frank's call).
 
 
 ## Changelog
+
+### 2026-10-11 (theme + UI round)
+- Two-tier CSS variable theme system (globals.css): 7 tier-1 base colors per
+  theme + tier-2 derived via color-mix (panel/line/subtext/brand-soft);
+  brand-* Tailwind names REBOUND to tier-1 vars so legacy classes theme
+  automatically. Dark toggle (.dark on html, localStorage, pre-paint inline
+  script = no FOUC) in the header.
+- Palette: "Blueberry Milk" (navy #2b3a55 text, periwinkle #5c77c9 brand,
+  peach #f5c5aa + butter #f7eab8 accents) + dark variant. Theme ladder:
+  surface bg/surface/ink, text subtext/text/heading, each accent has a
+  pastel fill + deep partner; RULE: pastel fills always carry text-ink.
+  Headings = white in dark. Heading font = Sunflower (Google Font).
+  History: "Lavender Lemonade" (2026-10-11 AM) replaced same day — thin
+  (purple+green only), gloomy dark.
+- Header fixed + idle-hide (visible while scrolling, slides away after 1.5s,
+  always shown at page top); header/footer both 67px; buttons = 40px circles
+  with grey shadow, hover scales the whole button 1.3x.
+- Bigo logo right of its heading; strip tail tightened; Join Us scrolls to
+  #contact form; Zalo link = zalo.me/61474749999 (TEST on device — works only
+  if the number is Zalo-registered); contact field 2 = "Phone / WhatsApp".
+- /images/* route: video MIME + Range/206 passthrough; VideoCompare section
+  (native hero.mp4 from R2 — YouTube embed removed after comparison);
+  image-strip = scroll-driven horizontal parallax (sticky pin + translateX,
+  SPEED 0.7, tiles clamp-sized) with click-to-zoom lightbox.
+
 ### 2026-10-11
 
 ### Added

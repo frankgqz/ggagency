@@ -31,7 +31,7 @@ export function ImageStrip() {
       raf = 0;
       const viewportH = window.innerHeight;
       const travel = Math.max(track.scrollWidth - frame.clientWidth, 0);
-      section.style.height = `${viewportH + travel * SPEED + 48}px`;
+      section.style.height = `${viewportH + travel * SPEED + 16}px`;
       const rect = section.getBoundingClientRect();
       const total = section.offsetHeight - viewportH;
       const progress = total > 0 ? Math.min(1, Math.max(0, -rect.top / total)) : 0;
@@ -61,7 +61,7 @@ export function ImageStrip() {
   }, [open]);
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-white">
+    <section ref={sectionRef} className="relative w-full bg-background">
       <div ref={frameRef} className="sticky top-0 h-screen">
         <div className="mx-auto flex h-full max-w-7xl items-center overflow-hidden px-4 sm:px-6">
           <div ref={trackRef} className="flex gap-1.5 will-change-transform">
@@ -88,7 +88,7 @@ export function ImageStrip() {
 
       {open !== null && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-6"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-ink/80 p-6"
           onClick={() => setOpen(null)}
           role="dialog"
           aria-modal="true"
@@ -104,7 +104,7 @@ export function ImageStrip() {
             type="button"
             onClick={() => setOpen(null)}
             aria-label="Close"
-            className="absolute top-5 right-6 rounded-full bg-white/15 px-3 py-1.5 font-sans text-sm text-white transition hover:bg-white/30"
+            className="absolute top-5 right-6 rounded-full bg-background/15 px-3 py-1.5 font-sans text-sm text-on-ink transition hover:bg-background/30"
           >
             ✕ Close
           </button>
