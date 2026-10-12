@@ -2,9 +2,10 @@
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "ggagency",
 	"main": ".open-next/worker.js",
-	"compatibility_date": "2025-01-01",
+	"compatibility_date": "2026-10-12",
 	"compatibility_flags": [
-		"nodejs_compat"
+		"nodejs_compat",
+		"nodejs_compat_populate_process_env"
 	],
 	"assets": {
 		"binding": "ASSETS",
@@ -21,8 +22,7 @@
 			"binding": "ggagency_db",
 			"database_name": "ggagency-db",
 			"database_id": "77fceb40-905b-4fba-90f5-53ac74038bb1",
-			"migrations_dir": "migrations",
-			"remote": true
+			"migrations_dir": "migrations"
 		}
 	],
 	"vars": {

@@ -19,8 +19,8 @@ export default function Home() {
         <VideoCompare />
         <LivestreamerCta />
         <Gallery />
-        <ImageStrip />
         <BigoStory />
+        <ImageStrip />
         <DiamondReseller />
         <ContactForm />
         <Spline3D />

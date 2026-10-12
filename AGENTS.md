@@ -82,6 +82,42 @@ worked (vault/frontman deletable — Frank's call).
   brand-* Tailwind names REBOUND to tier-1 vars so legacy classes theme
   automatically. Dark toggle (.dark on html, localStorage, pre-paint inline
   script = no FOUC) in the header.
+- 2026-10-12 (Payload in PRODUCTION — /admin live on the worker): deploy
+  chain fixed in layers: (1) Windows symlink EPERM = enable Developer Mode
+  (Settings > System > For developers) for OpenNext's copyTracedFiles; (2)
+  Turbopack hashed-externals ("Could not resolve drizzle-kit-<hash>/api") =
+  do NOT put drizzle-kit in serverExternalPackages (withPayload docs say so)
+  — resolveAlias to lib/drizzle-kit-stub.js instead; (3) Workers has empty
+  process.env without `nodejs_compat_populate_process_env` (added) + config
+  reads the secret from bindings env too; (4) "MessagePort is not defined" =
+  pino logger needs the template's console logger (cloudflareLogger) AND
+  Next's @edge-runtime/primitives reference MessagePort — stubbed in
+  payload.config.ts + compatibility_date bumped to 2026-10-12. Bundle FIT
+  the free plan (no size error!) — Workers Paid NOT needed so far. Permanently
+  noisy but benign at every deploy: 4x direct-eval warnings (inside Payload)
+  + DEP0190 (Node scolding wrangler) — rule: WARNING = noise, ERROR = care.
+  (5) Account creation500: workerd caps pbkdf2 at 100k iterations, Payload
+  hardcodes 600k -> lib/patch-crypto.js caps pbkdf2 consistently (hash+verify)
+  via the first import of payload.config.ts. Production /admin fully working:
+  first user created + logged in.
+  importMap includes R2ClientUploadHandler = big files upload browser->R2
+  directly (bypasses Worker body cap).
+- 2026-10-12 (Payload CMS scaffold — admin LIVE): collections users/media/
+  gallery/hero (flat schema — D1 batch-op bug #15219), payload.config.ts with
+  sqliteD1Adapter + r2Storage via `plugins:` (the `storage` key doesn't exist
+  in 3.90.2 — issue #17195), admin at app/(payload)/ (multiple-root-layouts:
+  site = app/(site)/, each group owns its <html>). Migration applied to remote
+  ggagency-db (11 tables incl. payload_* internals) + local mock. CONVENTION
+  RETIRED: wrangler.jsonc `remote: true` on the D1 binding — it split CLI and
+  dev proxy across two databases. New split: dev = local mock (.wrangler/
+  state), deploy = real bindings always. Gotchas hit: payload CLI compiles
+  config to CJS (no top-level await — use an async IIFE; extensionless
+  imports fail — use .ts suffixes); generated migrations import types as
+  values (split to `import type`); dev-mode schema push is disabled via
+  `push: false` (migrations are the source of truth); withPayload(nextConfig,
+  { devBundleServerPackages: false }) keeps drizzle-kit/esbuild out of the
+  dev bundle (Unknown-module-type + libsql errors otherwise). Settings:
+  PAYLOAD_SECRET in .env (gitignored) + wrangler secret for prod.
 - 2026-10-11 (media pipeline + loading): 1.mp4 (6-min) moved to YouTube
   (unlisted XJlMWchGuXs) — gallery tile 1 = YT thumb, click loads the embed.
   Video tiles: preload=none + poster frames (ffmpeg 1s frame, 800px, ~50KB

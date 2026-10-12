@@ -11,10 +11,14 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",
+    "@payloadcms/db-d1-sqlite": "^3.90.2",
+    "@payloadcms/next": "^3.90.2",
+    "@payloadcms/storage-r2": "^3.90.2",
     "class-variance-authority": "^0.7.1",
     "cn": "^0.4.0",
     "lucide-react": "^1.49.0",
     "next": "16.3.7",
+    "payload": "^3.90.2",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "shadcn": "^4.21.0",
@@ -30,6 +34,6 @@
     "@types/react-dom": "^19",
     "tailwindcss": "^4",
     "typescript": "^5",
-    "wrangler": "^4.145.0"
+    "wrangler": "^4.149.0"
   }
 }

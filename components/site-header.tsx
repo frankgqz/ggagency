@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 const R2 = "/images";
@@ -20,7 +19,7 @@ function NavButton({
   external?: boolean;
 }) {
   const cls =
-    "flex h-10 w-10 items-center justify-center overflow-hidden rounded-full shadow-[0_2px_10px_rgba(120,120,120,0.5)] transition hover:scale-[1.3] hover:bg-background/10";
+    "flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-[10px] bg-[#222228] shadow-[0_2px_10px_rgba(120,120,120,0.5)] transition hover:scale-[1.3] hover:bg-[#2d2d35] active:scale-[1.12] active:bg-[#3a3a44] sm:h-10 sm:w-10";
   const inner = (
     <span className={href ? cls : cls}>
       <span className="flex items-center justify-center overflow-hidden">{children}</span>
@@ -39,39 +38,17 @@ function NavButton({
 }
 
 export function SiteHeader() {
-  const [hidden, setHidden] = useState(false);
-
-  useEffect(() => {
-    let timer: ReturnType<typeof setTimeout>;
-    const onScroll = () => {
-      setHidden(false);
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        if (window.scrollY > HEADER_H) setHidden(true);
-      }, 1500);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      clearTimeout(timer);
-    };
-  }, []);
-
   return (
     <>
-      <header
-        className={`fixed inset-x-0 top-0 z-50 bg-ink transition-transform duration-300 ${
-          hidden ? "-translate-y-full" : "translate-y-0"
-        }`}
-      >
+      <header className="fixed inset-x-0 top-0 z-50 bg-ink">
         <div className="mx-auto flex h-[60px] max-w-6xl items-center justify-between px-4 sm:px-6">
-          <Link href="/" className="flex items-center gap-3 rounded-full px-2 py-1 shadow-[0_2px_10px_rgba(120,120,120,0.5)] transition hover:scale-[1.15] hover:bg-background/10">
-            <span className="font-heading text-[27px] font-medium leading-tight text-on-ink">
+          <Link href="/" className="flex shrink-0 items-center rounded-[10px] bg-[#222228] px-2.5 py-1 shadow-[0_2px_10px_rgba(120,120,120,0.5)] transition hover:scale-[1.15] hover:bg-[#2d2d35] active:scale-[1.05] active:bg-[#3a3a44]">
+            <span className="whitespace-nowrap font-heading text-[17px] font-medium leading-tight text-on-ink sm:text-[22px]">
               GG Agency
             </span>
           </Link>
 
-          <nav className="flex items-center gap-3">
+          <nav className="flex items-center gap-1.5 sm:gap-3">
             <NavButton label="Livestreaming">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img

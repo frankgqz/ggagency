@@ -99,16 +99,16 @@ export function Gallery() {
           Gallery
         </h2>
         {/* Row-major masonry: order reads left-right, then down */}
-        <div className="flex w-full items-start gap-3">
+        <div className="flex w-full items-start gap-1.5 sm:gap-3">
           {columns.map((col, ci) => (
-            <div key={ci} className="flex flex-1 flex-col gap-3">
+            <div key={ci} className="flex flex-1 flex-col gap-1.5 sm:gap-3">
               {col.map((item) => (
             <button
               key={item.n}
               type="button"
               onClick={() => setOpen(item)}
               aria-label={`Open gallery item ${item.n}`}
-              className="group relative mb-3 block w-full break-inside-avoid overflow-hidden rounded-lg bg-panel"
+              className="group relative block w-full overflow-hidden rounded-lg bg-panel"
               style={{ aspectRatio: `${item.w} / ${item.h}` }}
             >
               {item.type === "youtube" ? (
