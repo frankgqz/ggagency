@@ -102,6 +102,17 @@ worked (vault/frontman deletable — Frank's call).
   first user created + logged in.
   importMap includes R2ClientUploadHandler = big files upload browser->R2
   directly (bypasses Worker body cap).
+- 2026-10-13 (site READS from the DB — hardcoded gallery retired): page =
+  static forever + app/api/gallery/route.ts (one prepared D1 query) + client
+  fetch on load. RULE learned via 1102: never trigger runtime SSR on the
+  free plan (no revalidate windows / revalidatePath on the home page) —
+  Payload init + page render blows the 10ms CPU budget; the admin is fine
+  because it's rare traffic. Seeds live in scripts/seed-gallery.sql (42
+  rows; wrangler d1 execute --remote --file); the tsx/payload-run seed dies
+  silently at getPayload init — SQL route is the working one. DB routing:
+  `remote: true` binding = ONE shared DB everywhere; run tell = "Establishing
+  remote connection..." must appear on migrate. Migration files always need
+  the import-type split after migrate:create.
 - 2026-10-12 (Payload CMS scaffold — admin LIVE): collections users/media/
   gallery/hero (flat schema — D1 batch-op bug #15219), payload.config.ts with
   sqliteD1Adapter + r2Storage via `plugins:` (the `storage` key doesn't exist

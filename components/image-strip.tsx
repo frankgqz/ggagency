@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 // Images served from the R2 bucket via the Worker route /images/*
 // (app/images/[...key]/route.ts) — no public dev URL involved.
@@ -11,45 +11,10 @@ const stripImages = Array.from({ length: 12 }, (_, i) => ({
   label: `Photo ${i + 1}`,
 }));
 
-// Horizontal travel covers in 0.7x the vertical scroll distance (1.4x speed).
-const SPEED = 0.7;
+// Standard horizontal strip — native scroll, click to zoom (Frank 2026-10-15).
 
 export function ImageStrip() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const frameRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState<number | null>(null);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    const frame = frameRef.current;
-    const track = trackRef.current;
-    if (!section || !frame || !track) return;
-
-    let raf = 0;
-    const update = () => {
-      raf = 0;
-      const viewportH = window.innerHeight;
-      const travel = Math.max(track.scrollWidth - frame.clientWidth, 0);
-      section.style.height = `${viewportH + travel * SPEED + 16}px`;
-      const rect = section.getBoundingClientRect();
-      const total = section.offsetHeight - viewportH;
-      const progress = total > 0 ? Math.min(1, Math.max(0, -rect.top / total)) : 0;
-      track.style.transform = `translate3d(${-progress * travel}px, 0, 0)`;
-    };
-    const onScroll = () => {
-      if (!raf) raf = requestAnimationFrame(update);
-    };
-
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      if (raf) cancelAnimationFrame(raf);
-    };
-  }, []);
 
   useEffect(() => {
     if (open === null) return;
@@ -61,17 +26,25 @@ export function ImageStrip() {
   }, [open]);
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-background">
-      <div ref={frameRef} className="sticky top-0 h-screen">
-        <div className="mx-auto flex h-full max-w-7xl items-center overflow-hidden px-4 sm:px-6">
-          <div ref={trackRef} className="flex gap-1.5 will-change-transform">
+    <section className="relative w-full bg-background py-12">
+      <div className="mx-auto max-w-6xl px-4 pb-8 text-center sm:px-6">
+        <h2 className="font-heading text-[2rem] font-normal leading-tight text-heading sm:text-[2.5rem]">
+          Moments Along The Way
+        </h2>
+        <p className="mt-2 text-[17px] leading-[1.73] text-subtext">
+          The GG Agency journey, in pictures.
+        </p>
+      </div>
+      <div className="overflow-x-auto">
+        <div className="flex w-max items-center px-4 pb-2 sm:px-6">
+          <div className="flex gap-1.5">
             {stripImages.map((img, i) => (
               <button
                 key={i}
                 type="button"
                 onClick={() => setOpen(i)}
                 aria-label={`View ${img.label} larger`}
-                className="relative aspect-[121/345] h-[clamp(320px,58vh,540px)] shrink-0 cursor-zoom-in overflow-hidden rounded-lg transition hover:opacity-90"
+                className="relative aspect-[121/345] h-[clamp(300px,46vh,480px)] shrink-0 cursor-zoom-in overflow-hidden rounded-lg transition hover:opacity-90"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -85,6 +58,10 @@ export function ImageStrip() {
           </div>
         </div>
       </div>
+
+      <p className="mx-auto max-w-6xl px-4 pt-6 text-center text-[17px] leading-[1.73] text-subtext sm:px-6">
+        Tap any photo to view it larger.
+      </p>
 
       {open !== null && (
         <div

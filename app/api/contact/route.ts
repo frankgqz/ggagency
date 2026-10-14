@@ -17,8 +17,8 @@ export async function POST(req: Request) {
   const email = typeof b.email === "string" ? b.email.trim() : "";
   const message = typeof b.message === "string" ? b.message.trim() : "";
 
-  if (!name || !whatsapp || !email || !message) {
-    return Response.json({ ok: false, error: "Please fill in every field." }, { status: 400 });
+  if (!message) {
+    return Response.json({ ok: false, error: "Please add a message." }, { status: 400 });
   }
   if (
     name.length > LIMITS.name ||
@@ -28,7 +28,7 @@ export async function POST(req: Request) {
   ) {
     return Response.json({ ok: false, error: "One of the fields is too long." }, { status: 400 });
   }
-  if (!EMAIL_RE.test(email)) {
+  if (email && !EMAIL_RE.test(email)) {
     return Response.json({ ok: false, error: "That email doesn't look right." }, { status: 400 });
   }
 

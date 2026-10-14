@@ -1,6 +1,6 @@
 export function LivestreamerCta() {
   return (
-    <section className="w-full bg-background">
+    <section id="livestreamer" className="w-full scroll-mt-20 bg-background">
       <div className="mx-auto flex max-w-4xl flex-col items-center gap-8 px-4 py-12 text-center sm:px-6 lg:py-8">
         <h2 className="text-[2.5rem] font-normal leading-tight text-heading sm:text-[3.125rem]">
           Become An Official Livestreamer

@@ -56,7 +56,7 @@ const socials = [
 
 export function SiteFooter() {
   return (
-    <footer className="w-full bg-ink">
+    <footer className="relative z-10 w-full bg-ink">
       <div className="mx-auto flex h-[60px] max-w-6xl items-center justify-center gap-5 px-4 sm:px-6">
         {socials.map((s) => (
           <a

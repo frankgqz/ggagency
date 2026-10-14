@@ -27,6 +27,10 @@
   --color-on-ink: var(--on-ink);
   --color-heading: var(--heading);
   --color-cta: var(--cta);
+  --color-control: var(--control);
+  --color-control-hover: var(--control-hover);
+  --color-control-active: var(--control-active);
+  --color-spline: var(--spline);
 }
 
 /* ===== Theme tier 1: the only values a theme redefines (7 base colors) ===== */
@@ -37,10 +41,14 @@
   --brand: #7b96e0;               /* pastel periwinkle */
   --brand-2: #f5c5aa;             /* peach pastel fill */
   --surface: #e4ebf8;             /* panel */
-  --ink: #0b0b0f;                 /* fixed black bars + buttons */
+  --ink: #000000;                 /* fixed black bars + buttons */
   --on-ink: #f2f5fc;
-  --heading: #7b96e0;             /* headings = pastel periwinkle */
+  --heading: #2b3a55;             /* headings = ink (Frank 2026-10-14) */
   --cta: #f0d27e;                 /* warm honey CTA (pairs with text-ink) */
+  --control: #222228;             /* header control buttons (on black bars) */
+  --control-hover: #2d2d35;
+  --control-active: #3a3a44;
+  --spline: #ffffff;              /* the dino's white background */
 }
 
 .dark {
@@ -49,9 +57,10 @@
   --brand: #a5baf0;               /* light periwinkle */
   --brand-2: #e8b896;             /* peach lifted */
   --surface: #22222d;
-  --ink: #0b0b0f;
+  --ink: #000000;
   --on-ink: #eef2fb;
   --heading: #ffffff;             /* headings stay white in dark */
+  --spline: #ffffff;              /* the dino's white background */
   --cta: #eccf85;
 }
 
@@ -79,5 +88,35 @@
   }
   .dark {
     color-scheme: dark;
+  }
+}
+
+/* Dino on white (Frank 2026-10-15): the scene renders natural — no flip */
+
+/* Anchor navigation glides; the reduced-motion rule below forces auto */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Accessibility + motion discipline */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Keyboard parity: every interactive element shows focus */
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+/* Theme flip is a designed moment (base layer — element utilities win) */
+@layer base {
+  * {
+    transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
   }
 }

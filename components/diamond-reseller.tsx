@@ -1,8 +1,10 @@
+import { DiamondPricing } from "@/components/diamond-pricing";
+
 const R2 = "/images";
 
 export function DiamondReseller() {
   return (
-    <section className="w-full bg-background">
+    <section id="diamonds" className="w-full scroll-mt-20 bg-background">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-10 px-4 py-10 sm:px-6 lg:py-12">
         <div className="flex max-w-2xl flex-col items-center gap-5 text-center">
           <h2 className="text-[2.5rem] font-normal leading-tight text-heading sm:text-[3.125rem]">
@@ -56,31 +58,7 @@ export function DiamondReseller() {
         </div>
 
         <div className="flex w-full items-center justify-center">
-          <div className="relative h-80 w-full max-w-3xl overflow-hidden rounded-2xl bg-gradient-to-br from-brand-orange/20 via-brand-navy/10 to-brand-pink/30 shadow-lg">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-ink text-cta">
-                  <svg
-                    width="32"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M6 3h12l4 6-10 13L2 9Z" />
-                    <path d="M11 3 8 9l4 13 4-13-3-6" />
-                    <path d="M2 9h20" />
-                  </svg>
-                </div>
-                <p className="text-sm font-medium text-brand-navy">
-                  GG Agency · Bigo Live
-                </p>
-              </div>
-            </div>
-          </div>
+          <DiamondPricing />
         </div>
       </div>
     </section>

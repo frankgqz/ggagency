@@ -1,4 +1,4 @@
-import './lib/patch-crypto'
+import './lib/patch-crypto.js'
 import fs from 'fs'
 import path from 'path'
 import { sqliteD1Adapter } from '@payloadcms/db-d1-sqlite'
@@ -19,7 +19,7 @@ if (typeof (globalThis as Record<string, unknown>).MessagePort === 'undefined') 
   ;(globalThis as Record<string, unknown>).MessagePort = class MessagePort {}
 }
 
-const isProduction = process.env.NODE_ENV === 'production'
+const isProduction = process.env.NODE_ENV === 'production' || process.env.PAYLOAD_REMOTE === '1'
 
 // Workers-safe logger (template-exact): Payload's default pino logger needs
 // worker_threads/MessagePort, which the Workers runtime lacks (ReferenceError:
@@ -60,16 +60,23 @@ const isCLI = process.argv.some((v) => {
 // with-cloudflare-d1 template.
 async function getCloudflareContextFromWrangler() {
   const { getPlatformProxy } = await import(/* webpackIgnore: true */ '__wrangler'.replaceAll('_', ''))
-  return getPlatformProxy({ environment: process.env.CLOUDFLARE_ENV, remoteBindings: isProduction })
+  return getPlatformProxy({ environment: process.env.CLOUDFLARE_ENV, remoteBindings: true })
 }
 
 // NOTE: an async IIFE, NOT top-level await — the payload CLI compiles this
 // file to CommonJS, where top-level await is illegal. The config export is
 // expected to be Promise<SanitizedConfig>, so this shape is native to Payload.
 export default (async () => {
-  // CLI always uses the wrangler platform proxy (remoteBindings flips it to
-  // the real D1/R2 when NODE_ENV=production); inside the Worker at runtime,
-  // getCloudflareContext provides the actual bindings.
+  // PROVEN ROUTING (2026-10-13, restored after a try/catch variant silently
+  // mis-routed to the mock): the payload CLI and scripts always use the
+  // wrangler platform proxy (remoteBindings = isProduction); inside the
+  // Worker, getCloudflareContext provides the real bindings.
+  // Tell for which DB you're on: a remote run prints "Establishing remote
+  // connection..." — if that line is absent, you're on the local mock.
+  // ONE SHARED DATABASE (restored convention, 2026-10-13): the binding is
+  // `remote: true` and the CLI proxy always requests remote bindings — dev,
+  // scripts, migrate, and production all speak to the real D1/R2. The tell:
+  // a remote run prints "Establishing remote connection...".
   const cloudflare =
     isCLI || !isProduction
       ? await getCloudflareContextFromWrangler()

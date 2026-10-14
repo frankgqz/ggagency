@@ -33,16 +33,14 @@ export function ContactForm() {
           {/* Name + WhatsApp side by side */}
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <input
-              required
               name="name"
-              placeholder="Name *"
+              placeholder="Name"
               className="h-[37px] w-full border border-line bg-background px-2.5 py-[3px] font-sans text-sm text-foreground placeholder:text-subtext outline-none transition focus:border-brand"
             />
             <input
-              required
               name="whatsapp"
               type="tel"
-              placeholder="Phone / WhatsApp *"
+              placeholder="Phone / WhatsApp"
               className="h-[37px] w-full border border-line bg-background px-2.5 py-[3px] font-sans text-sm text-foreground placeholder:text-subtext outline-none transition focus:border-brand"
             />
           </div>
@@ -50,7 +48,7 @@ export function ContactForm() {
             required
             name="email"
             type="email"
-            placeholder="Email *"
+            placeholder="Email"
             className="h-[37px] w-full border border-line bg-background px-2.5 py-[3px] font-sans text-sm text-foreground placeholder:text-subtext outline-none transition focus:border-brand"
           />
           <textarea

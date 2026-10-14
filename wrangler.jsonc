@@ -22,7 +22,8 @@
 			"binding": "ggagency_db",
 			"database_name": "ggagency-db",
 			"database_id": "77fceb40-905b-4fba-90f5-53ac74038bb1",
-			"migrations_dir": "migrations"
+			"migrations_dir": "migrations",
+			"remote": true
 		}
 	],
 	"vars": {
