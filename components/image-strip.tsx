@@ -26,16 +26,8 @@ export function ImageStrip() {
   }, [open]);
 
   return (
-    <section className="relative w-full bg-background py-12">
-      <div className="mx-auto max-w-6xl px-4 pb-8 text-center sm:px-6">
-        <h2 className="font-heading text-[2rem] font-normal leading-tight text-heading sm:text-[2.5rem]">
-          Moments Along The Way
-        </h2>
-        <p className="mt-2 text-[17px] leading-[1.73] text-subtext">
-          The GG Agency journey, in pictures.
-        </p>
-      </div>
-      <div className="overflow-x-auto">
+    <section className="relative w-full bg-background pt-4 pb-12">
+      <div className="mx-auto max-w-6xl overflow-x-auto">
         <div className="flex w-max items-center px-4 pb-2 sm:px-6">
           <div className="flex gap-1.5">
             {stripImages.map((img, i) => (
@@ -58,10 +50,6 @@ export function ImageStrip() {
           </div>
         </div>
       </div>
-
-      <p className="mx-auto max-w-6xl px-4 pt-6 text-center text-[17px] leading-[1.73] text-subtext sm:px-6">
-        Tap any photo to view it larger.
-      </p>
 
       {open !== null && (
         <div

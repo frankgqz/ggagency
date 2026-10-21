@@ -210,3 +210,23 @@ worked (vault/frontman deletable — Frank's call).
 ### Removed
 - "Join the GG Agency family" pre-footer section (not on original site)
 - `components/pre-footer.tsx`
+
+## Launch phase — DNS inventory + checklist (captured 2026-10-21)
+Pre-move DNS state of ggagency.com.au (via dns.google DoH, 2026-10-21 —
+these records die when the nameservers move; recreate as needed):
+- NS: ns14.wixdns.net, ns15.wixdns.net
+- A (apex): 185.230.63.107, 185.230.63.171, 185.230.63.186 (Wix hosting)
+- MX: 10 mail.ggagency.com.au
+- www: CNAME cdn3.wixdns.net
+- TXT: none (no SPF/DKIM on the domain yet)
+
+Domain move checklist (Frank = the OnlyDomains + Cloudflare clicks):
+1. Cloudflare dashboard: Add Site ggagency.com.au (Free plan) -> CF gives 2 nameservers.
+2. OnlyDomains: set nameservers to the 2 Cloudflare ones (the whole move = this switch).
+3. In CF DNS: recreate what's needed (mail.ggagency.com.au A/MX if that
+   mailbox still matters; nothing else = Wix-only records).
+4. Workers: custom domains ggagency.com.au + www.ggagency.com.au -> ggagency worker.
+5. Resend: domain verification for ggagency.com.au (SPF/DKIM records it displays).
+Then: SEO (sitemap/robots/metadata/OG), analytics (Cloudflare Web Analytics
+= free with the domain), CMS finalize (contact inbox collection + Resend
+email adapter for admin resets), type-scale/clamp design session.

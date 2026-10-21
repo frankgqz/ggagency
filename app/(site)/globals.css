@@ -48,7 +48,7 @@
   --control: #222228;             /* header control buttons (on black bars) */
   --control-hover: #2d2d35;
   --control-active: #3a3a44;
-  --spline: #ffffff;              /* the dino's white background */
+  --spline: #ffffff;              /* light: the dino on white */
 }
 
 .dark {
@@ -60,7 +60,7 @@
   --ink: #000000;
   --on-ink: #eef2fb;
   --heading: #ffffff;             /* headings stay white in dark */
-  --spline: #ffffff;              /* the dino's white background */
+  --spline: #22222d;              /* dark card frame = the surface tone (contrast vs the band) */
   --cta: #eccf85;
 }
 
@@ -91,7 +91,12 @@
   }
 }
 
-/* Dino on white (Frank 2026-10-15): the scene renders natural — no flip */
+/* Dino on white (Frank 2026-10-15): the scene renders natural — no flip.
+   The Spline viewer inherits our color-scheme and paints a white backdrop
+   in dark mode; pin the iframe to light-scheme so it stays transparent. */
+.spline-frame {
+  color-scheme: light;
+}
 
 /* Anchor navigation glides; the reduced-motion rule below forces auto */
 html {
