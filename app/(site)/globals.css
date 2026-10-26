@@ -41,13 +41,13 @@
   /* Blueberry Milk */
   --background: #f2f5fc;          /* soft blue-gray */
   --foreground: #2b3a55;          /* navy = body text */
-  --brand: #b79bdd;               /* lilac (Lilac & Lace pick 2026-10-22) */
+  --brand: #22222a;               /* graphite accents (was lilac; black-ish Frank 2026-10-26) */
   --brand-2: #f5c5aa;             /* peach pastel fill */
   --surface: #e4ebf8;             /* panel */
   --ink: #000000;                 /* fixed black bars + buttons */
   --on-ink: #f2f5fc;
-  --heading: #6f4f9e;             /* headings = lilac purple (Frank 2026-10-22) */
-  --cta: #8a68c2;                 /* lilac purple CTA (Frank 2026-10-22) */
+  --heading: #000000;             /* headings = black (was lilac purple, Frank 2026-10-26) */
+  --cta: #000000;                 /* CTA = black (was lilac purple, Frank 2026-10-26) */
   --control: #222228;             /* header control buttons (on black bars) */
   --control-hover: #2d2d35;
   --control-active: #3a3a44;
