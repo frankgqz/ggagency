@@ -19,9 +19,32 @@ const sunflower = Sunflower({
 });
 
 export const metadata: Metadata = {
-  title: "GG Agency | Official Bigo Diamond Reseller",
+  metadataBase: new URL("https://ggagency.com.au"),
+  title: {
+    default: "GG Agency | Official Bigo Diamond Reseller",
+    template: "%s | GG Agency",
+  },
   description:
     "Australia's premier Bigo livestreaming agency. Fast BigoLive diamond recharge, livestreamer management, and community events.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    siteName: "GG Agency",
+    url: "https://ggagency.com.au",
+    title: "GG Agency | Official Bigo Diamond Reseller",
+    description:
+      "Australia's premier Bigo livestreaming agency. Fast BigoLive diamond recharge, livestreamer management, and community events.",
+    locale: "en_AU",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "GG Agency — Livestreaming and content generation. Official Bigo Diamond Reseller." }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "GG Agency | Official Bigo Diamond Reseller",
+    description:
+      "Australia's premier Bigo livestreaming agency. Fast BigoLive diamond recharge, livestreamer management, and community events.",
+    images: ["/og.png"],
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -35,6 +58,26 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           dangerouslySetInnerHTML={{
             __html:
               "try{if(localStorage.getItem('gg-theme')==='dark')document.documentElement.classList.add('dark')}catch(e){}",
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "GG Agency",
+              url: "https://ggagency.com.au",
+              image: "https://ggagency.com.au/og.png",
+              description:
+                "Australia's premier Bigo livestreaming agency. Fast BigoLive diamond recharge, livestreamer management, and community events.",
+              email: "haylee.trinh@gmail.com",
+              founder: { "@type": "Person", name: "Haylee Trinh" },
+              sameAs: [
+                "https://www.facebook.com/kem.dau.54",
+                "https://www.instagram.com/gg.familyyyyy",
+              ],
+            }),
           }}
         />
         {children}

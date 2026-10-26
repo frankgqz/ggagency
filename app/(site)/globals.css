@@ -25,6 +25,9 @@
   --color-brand-soft: var(--brand-soft);
   --color-ink: var(--ink);
   --color-on-ink: var(--on-ink);
+  --color-bar: var(--bar);
+  --color-bar-solid: var(--bar-solid);
+  --color-bar-text: var(--bar-text);
   --color-heading: var(--heading);
   --color-cta: var(--cta);
   --color-control: var(--control);
@@ -38,17 +41,21 @@
   /* Blueberry Milk */
   --background: #f2f5fc;          /* soft blue-gray */
   --foreground: #2b3a55;          /* navy = body text */
-  --brand: #7b96e0;               /* pastel periwinkle */
+  --brand: #b79bdd;               /* lilac (Lilac & Lace pick 2026-10-22) */
   --brand-2: #f5c5aa;             /* peach pastel fill */
   --surface: #e4ebf8;             /* panel */
   --ink: #000000;                 /* fixed black bars + buttons */
   --on-ink: #f2f5fc;
-  --heading: #2b3a55;             /* headings = ink (Frank 2026-10-14) */
-  --cta: #f0d27e;                 /* warm honey CTA (pairs with text-ink) */
+  --heading: #6f4f9e;             /* headings = lilac purple (Frank 2026-10-22) */
+  --cta: #8a68c2;                 /* lilac purple CTA (Frank 2026-10-22) */
   --control: #222228;             /* header control buttons (on black bars) */
   --control-hover: #2d2d35;
   --control-active: #3a3a44;
   --spline: #ffffff;              /* light: the dino on white */
+  --bar: #ffffff;                 /* top bar initial: white */
+  --bar-scroll: rgba(255, 255, 255, 0.22); /* light: on scroll = much more transparent */
+  --bar-solid: #ffffff;           /* footer bar: white (both themes) */
+  --bar-text: #1c1a1a;            /* text/icons on the bars (both themes) */
 }
 
 .dark {
@@ -62,6 +69,10 @@
   --heading: #ffffff;             /* headings stay white in dark */
   --spline: #22222d;              /* dark card frame = the surface tone (contrast vs the band) */
   --cta: #eccf85;
+  --bar: #000000;                 /* dark: black bars (Frank 2026-10-22) */
+  --bar-scroll: #000000;
+  --bar-solid: #000000;
+  --bar-text: #eef2fb;
 }
 
 /* ===== Theme tier 2: derived — re-resolve automatically per theme ===== */
@@ -103,6 +114,10 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Top bar: white at rest, near-transparent on scroll (dark stays opaque) */
+.topbar { background-color: var(--bar); }
+.topbar.bar-scrolled { background-color: var(--bar-scroll); }
+
 /* Accessibility + motion discipline */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -124,4 +139,12 @@ html {
   * {
     transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
   }
+}
+
+/* ===== Wordmark: text-only with depth in light, chip kept in dark ===== */
+.brand-text {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5), 0 2px 10px rgba(20, 20, 28, 0.25);
+}
+.dark .brand-text {
+  text-shadow: none;
 }

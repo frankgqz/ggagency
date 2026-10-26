@@ -1,6 +1,14 @@
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ContactForm } from "@/components/contact-form";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description:
+    "Founded by Haylee Trinh, GG Agency became Australia's largest Bigo agency — livestreamer management, diamond reselling, and community first.",
+  alternates: { canonical: "/about" },
+};
 
 const R2 = "/images";
 
