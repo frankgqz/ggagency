@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 const R2 = "/images";
 const US_DIAMOND_PRICE = 57.5; // Bigo's US$ price for 50,000 diamonds
 const MARGIN = 1.05;           // 5% on top
+const BANK_FEE = 1.01;         // 1% bank fee
 const FALLBACK_RATE = 1.451;
 
 // The available price tables (their key = the 50,000-diamonds AUD price).
@@ -31,7 +32,7 @@ export function DiamondPricing() {
       .then((d) => {
         if (!alive) return;
         const r: number = typeof d?.rate === "number" ? d.rate : FALLBACK_RATE;
-        const value = (50000 / US_DIAMOND_PRICE) * r * MARGIN;
+        const value = (50000 / US_DIAMOND_PRICE) * r * MARGIN * BANK_FEE;
         setRate(r);
         setTier(nearestTier(Math.round(value / 10) * 10));
       })
