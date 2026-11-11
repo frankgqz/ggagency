@@ -18,7 +18,7 @@ export function LivestreamerCta() {
         </p>
         <a
           href="#contact"
-          className="inline-flex h-[45px] w-[120px] items-center justify-center rounded-md bg-cta font-poppins text-[15px] font-medium text-ink shadow-sm transition hover:scale-105"
+          className="inline-flex h-[45px] w-[120px] items-center justify-center rounded-md bg-cta font-poppins text-[15px] font-medium text-background shadow-sm transition hover:scale-105"
         >
           Join Us
         </a>
